@@ -9,7 +9,7 @@ spec:
       # activeService specifies the service to update with the new template hash at time of promotion.
       # This field is mandatory for the blueGreen update strategy.
       activeService: guestbook-ui
-      scaleDownDelaySeconds: 60
+      scaleDownDelaySeconds: 180
       # previewService specifies the service to update with the new template hash before promotion.
       # This allows the preview stack to be reachable without serving production traffic.
       # This field is optional.
@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: rollouts-demo
-        image: argoproj/rollouts-demo:yellow
+        image: argoproj/rollouts-demo:blue
         ports:
         - name: http
           containerPort: 8080
@@ -65,5 +65,5 @@ spec:
                 - name: test
                   image: busybox:latest
                   command:
-                    [echo, "potato"]
+                    ["sleep 30;", "echo", "potato"]
               restartPolicy: Never
