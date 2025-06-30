@@ -66,5 +66,5 @@ spec:
                 - name: test
                   image: busybox:latest
                   command:
-                    ["sleep 60;", "echo", "potato"]
+                    ["sleep","60"]
               restartPolicy: Never
