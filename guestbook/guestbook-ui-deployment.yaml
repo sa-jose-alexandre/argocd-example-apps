@@ -28,10 +28,18 @@ spec:
         app: guestbook-ui
     spec:
       containers:
-        - image: gcr.io/google-samples/gb-frontend:v5
-          name: guestbook-ui
-          ports:
-            - containerPort: 80
+      - name: rollouts-demo
+        image: argoproj/rollouts-demo:blue
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+      # - name: rollouts-demo
+      #   image: argoproj/rollouts-demo:yellow
+      #   ports:
+      #   - name: http
+      #     containerPort: 8080
+      #     protocol: TCP
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
