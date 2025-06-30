@@ -49,8 +49,6 @@ kind: AnalysisTemplate
 metadata:
   name: success-rate
 spec:
-  args:
-  - name: service-name
   metrics:
   - name: test
     provider:
@@ -68,5 +66,5 @@ spec:
                 - name: test
                   image: busybox:latest
                   command:
-                    ["sleep 30;", "echo", "potato"]
+                    ["sleep 60;", "echo", "potato"]
               restartPolicy: Never
